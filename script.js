@@ -8,31 +8,38 @@ function convertir() {
   //convertir guiones = â
   //textoFinal = textoFinal.replace("â","-");
   
-   var textoModificado = textoFinal;
-  var indice = textoModificado.toLowerCase().indexOf("â");
-  while (indice !== -1) {
-    textoModificado = textoModificado.substring(0, indice) + "-" + textoModificado.substring(indice + 1);
-    indice = textoModificado.toLowerCase().indexOf("â", indice + 1);
-  }
-  textoFinal = textoModificado;
+  
+  // var textoModificado = textoFinal;
+  //var indice = textoModificado.toLowerCase().indexOf("â");
+  //while (indice !== -1) {
+  //  textoModificado = textoModificado.substring(0, indice) + "-" + textoModificado.substring(indice + 1);
+  //  indice = textoModificado.toLowerCase().indexOf("â", indice + 1);
+  // }
+  //textoFinal = textoModificado;
+  
+  textoFinal = reemplazarPalabra(textoFinal,"â","-");
   
   //quitar = 
- var textoModificado = textoFinal;
-  var indice = textoModificado.toLowerCase().indexOf("");
-  while (indice !== -1) {
-    textoModificado = textoModificado.substring(0, indice) + "" + textoModificado.substring(indice + 1);
-    indice = textoModificado.toLowerCase().indexOf("", indice + 1);
-  }
-  textoFinal = textoModificado;
+ //var textoModificado = textoFinal;
+  //var indice = textoModificado.toLowerCase().indexOf("");
+  //while (indice !== -1) {
+   // textoModificado = textoModificado.substring(0, indice) + "" + textoModificado.substring(indice + 1);
+   // indice = textoModificado.toLowerCase().indexOf("", indice + 1);
+ // }
+  //textoFinal = textoModificado;
+  
+  textoFinal = reemplazarPalabra(textoFinal,"","");
   
   //-
-   var textoModificado = textoFinal;
-  var indice = textoModificado.toLowerCase().indexOf("-");
-  while (indice !== -1) {
-    textoModificado = textoModificado.substring(0, indice) + "-" + textoModificado.substring(indice + 1);
-    indice = textoModificado.toLowerCase().indexOf("-", indice + 1);
-  }
-  textoFinal = textoModificado;
+  // var textoModificado = textoFinal;
+  //var indice = textoModificado.toLowerCase().indexOf("-");
+  //while (indice !== -1) {
+   // textoModificado = textoModificado.substring(0, indice) + "-" + textoModificado.substring(indice + 1);
+   // indice = textoModificado.toLowerCase().indexOf("-", indice + 1);
+  //}
+  //textoFinal = textoModificado;
+  
+  textoFinal = reemplazarPalabra(textoFinal,"-","-");
 
   // Eliminar saltos de línea y otros caracteres especiales
   textoFinal = textoFinal.replace(/\r?\n|\r/g, "");
@@ -54,3 +61,17 @@ function convertir() {
   // Mostrar el resultado en el textarea correspondiente
   document.getElementById("resultado").value = textoFinal;
 }
+
+function reemplazarPalabra(textoOriginal, palabraOriginal, palabraNueva) {
+  // Reemplazar todas las apariciones de la palabra original
+  var textoModificado = textoOriginal;
+  var indice = textoModificado.toLowerCase().indexOf(palabraOriginal.toLowerCase());
+  while (indice !== -1) {
+    textoModificado = textoModificado.substring(0, indice) + palabraNueva + textoModificado.substring(indice + palabraOriginal.length);
+    indice = textoModificado.toLowerCase().indexOf(palabraOriginal.toLowerCase(), indice + palabraNueva.length);
+  }
+
+  // Devolver el nuevo texto con las palabras reemplazadas
+  return textoModificado;
+}
+
