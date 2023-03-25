@@ -9,7 +9,7 @@ function convertir() {
   textoFinal = textoFinal.replace(/\r?\n|\r/g, "");
 
   // Reemplazar espacios dobles por espacios
-  textoFinal = textoUtf8.replace(/\s+/g, " ");
+  textoFinal = textoFinal.replace(/\s+/g, " ");
 
   // Asegurarse de que el caracter de espacio sea UTF-8
   textoFinal = textoFinal.replace(/ /g, "\u00A0");
