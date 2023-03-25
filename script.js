@@ -5,6 +5,9 @@ function convertir() {
   // Convertir el texto a UTF-8
   var textoFinal = unescape(encodeURIComponent(textoOriginal));
 
+  //convertir guiones
+  textoFinal = textoFinal.replace("â","-");
+
   // Eliminar saltos de línea y otros caracteres especiales
   textoFinal = textoFinal.replace(/\r?\n|\r/g, "");
 
@@ -16,6 +19,8 @@ function convertir() {
   
    // Asegurarse de que los guiones sean guiones UTF-8
   textoFinal = textoFinal.replace(/-/g, "\u2013");
+  
+  
   
   //formato mac
    textoFinal = textoFinal.replace(/\n/g, '\r');
