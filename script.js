@@ -16,6 +16,9 @@ function convertir() {
   
    // Asegurarse de que los guiones sean guiones UTF-8
   textoFinal = textoLimpio.replace(/-/g, "\u2013");
+  
+  //formato mac
+   textoFinal = textoFinal.replace(/\n/g, '\r');
 
   // Mostrar el resultado en el textarea correspondiente
   document.getElementById("resultado").value = textoFinal;
