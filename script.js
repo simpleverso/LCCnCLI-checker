@@ -5,7 +5,7 @@ function convertir() {
   // Convertir el texto a UTF-8
   var textoFinal = unescape(encodeURIComponent(textoOriginal));
 
-  //convertir guiones
+  //convertir guiones = â
   //textoFinal = textoFinal.replace("â","-");
   
    var textoModificado = textoFinal;
@@ -14,7 +14,15 @@ function convertir() {
     textoModificado = textoModificado.substring(0, indice) + "-" + textoModificado.substring(indice + 1);
     indice = textoModificado.toLowerCase().indexOf("â", indice + 1);
   }
+  textoFinal = textoModificado;
   
+  //quitar = 
+ var textoModificado = textoFinal;
+  var indice = textoModificado.toLowerCase().indexOf("");
+  while (indice !== -1) {
+    textoModificado = textoModificado.substring(0, indice) + "" + textoModificado.substring(indice + 1);
+    indice = textoModificado.toLowerCase().indexOf("", indice + 1);
+  }
   textoFinal = textoModificado;
 
   // Eliminar saltos de línea y otros caracteres especiales
