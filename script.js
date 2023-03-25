@@ -3,13 +3,13 @@ function convertir() {
   var textoOriginal = document.getElementById("texto").value;
 
   // Convertir el texto a UTF-8
-  var textoUtf8 = unescape(encodeURIComponent(textoOriginal));
+  var textoFinal = unescape(encodeURIComponent(textoOriginal));
 
   // Eliminar saltos de línea y otros caracteres especiales
-  //var textoLimpio = textoUtf8.replace(/\r?\n|\r/g, "");
+  textoFinal = textoFinal.replace(/\r?\n|\r/g, "");
 
   // Reemplazar espacios dobles por espacios
-  var textoFinal = textoUtf8.replace(/\s+/g, " ");
+  textoFinal = textoUtf8.replace(/\s+/g, " ");
 
   // Asegurarse de que el caracter de espacio sea UTF-8
   textoFinal = textoFinal.replace(/ /g, "\u00A0");
