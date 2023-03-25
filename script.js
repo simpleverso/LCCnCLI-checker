@@ -42,25 +42,30 @@ function convertir() {
   textoFinal = reemplazarPalabra(textoFinal,"-","-");
 
   // Eliminar saltos de línea y otros caracteres especiales
-  //textoFinal = textoFinal.replace(/\r?\n|\r/g, "");
-  textoFinal = reemplazarPalabra(textoFinal,/\r?\n|\r/g,"");
+  //textoFinal = textoFinal.replace(/\r?\n|\r/g, ""); "/\r?\n|\r/g". |\r/g
+  textoFinal = reemplazarPalabra(textoFinal,"/\r?\n","");
+  textoFinal = reemplazarPalabra(textoFinal,"\r/g","");
 
   // Reemplazar espacios dobles por espacios
   //textoFinal = textoFinal.replace(/\s+/g, " ");
-  textoFinal = reemplazarPalabra(textoFinal,/\s+/g," ");
+  //textoFinal = reemplazarPalabra(textoFinal,/\s+/g," ");
+  textoFinal = reemplazarPalabra(textoFinal,"/\s+/g"," ");
 
   // Asegurarse de que el caracter de espacio sea UTF-8
   //textoFinal = textoFinal.replace(/ /g, "\u00A0");
-  textoFinal = reemplazarPalabra(textoFinal,/ /g,"\u00A0");
+  //textoFinal = reemplazarPalabra(textoFinal,/ /g,"\u00A0");
+  textoFinal = reemplazarPalabra(textoFinal,"/ /g","\u00A0");
   
    // Asegurarse de que los guiones sean guiones UTF-8
   //textoFinal = textoFinal.replace(/-/g, "\u2013");
-  textoFinal = reemplazarPalabra(textoFinal,/-/g,"\u2013");
+  //textoFinal = reemplazarPalabra(textoFinal,/-/g,"\u2013");
+  textoFinal = reemplazarPalabra(textoFinal,"/-/g","\u2013");
   
   
   //formato mac
    //textoFinal = textoFinal.replace(/\n/g, '\r');
-   textoFinal = reemplazarPalabra(textoFinal,/\n/g,'\r');
+   //textoFinal = reemplazarPalabra(textoFinal,/\n/g,'\r');
+   textoFinal = reemplazarPalabra(textoFinal,"/\n/g","\r");
 
   // Mostrar el resultado en el textarea correspondiente
   document.getElementById("resultado").value = textoFinal;
