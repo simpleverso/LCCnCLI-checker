@@ -6,10 +6,10 @@ function convertir() {
   var textoUtf8 = unescape(encodeURIComponent(textoOriginal));
 
   // Eliminar saltos de línea y otros caracteres especiales
-  var textoLimpio = textoUtf8.replace(/\r?\n|\r/g, "");
+  //var textoLimpio = textoUtf8.replace(/\r?\n|\r/g, "");
 
   // Reemplazar espacios dobles por espacios
-  var textoFinal = textoLimpio.replace(/\s+/g, " ");
+  var textoFinal = textoUtf8.replace(/\s+/g, " ");
 
   // Asegurarse de que el caracter de espacio sea UTF-8
   textoFinal = textoFinal.replace(/ /g, "\u00A0");
