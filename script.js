@@ -15,7 +15,7 @@ function convertir() {
   textoFinal = textoFinal.replace(/ /g, "\u00A0");
   
    // Asegurarse de que los guiones sean guiones UTF-8
-  textoFinal = textoLimpio.replace(/-/g, "\u2013");
+  textoFinal = textoFinal.replace(/-/g, "\u2013");
   
   //formato mac
    textoFinal = textoFinal.replace(/\n/g, '\r');
