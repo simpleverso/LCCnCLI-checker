@@ -24,6 +24,15 @@ function convertir() {
     indice = textoModificado.toLowerCase().indexOf("", indice + 1);
   }
   textoFinal = textoModificado;
+  
+  //-
+   var textoModificado = textoFinal;
+  var indice = textoModificado.toLowerCase().indexOf("-");
+  while (indice !== -1) {
+    textoModificado = textoModificado.substring(0, indice) + "-" + textoModificado.substring(indice + 1);
+    indice = textoModificado.toLowerCase().indexOf("-", indice + 1);
+  }
+  textoFinal = textoModificado;
 
   // Eliminar saltos de línea y otros caracteres especiales
   textoFinal = textoFinal.replace(/\r?\n|\r/g, "");
