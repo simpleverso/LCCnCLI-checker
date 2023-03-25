@@ -6,7 +6,16 @@ function convertir() {
   var textoFinal = unescape(encodeURIComponent(textoOriginal));
 
   //convertir guiones
-  textoFinal = textoFinal.replace("â","-");
+  //textoFinal = textoFinal.replace("â","-");
+  
+   var textoModificado = textoFinal;
+  var indice = textoModificado.toLowerCase().indexOf("â");
+  while (indice !== -1) {
+    textoModificado = textoModificado.substring(0, indice) + "-" + textoModificado.substring(indice + 1);
+    indice = textoModificado.toLowerCase().indexOf("â", indice + 1);
+  }
+  
+  textoFinal = textoModificado;
 
   // Eliminar saltos de línea y otros caracteres especiales
   textoFinal = textoFinal.replace(/\r?\n|\r/g, "");
