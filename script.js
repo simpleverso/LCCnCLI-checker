@@ -61,6 +61,7 @@ function convertir() {
   //textoFinal = reemplazarPalabra(textoFinal,/-/g,"\u2013");
   textoFinal = reemplazarPalabra(textoFinal,"/-/g","\u2013");
   
+  textoFinal = reemplazarPalabra(textoFinal,"Â ","\u2013")
   
   //formato mac
    //textoFinal = textoFinal.replace(/\n/g, '\r');
